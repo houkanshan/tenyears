@@ -1,0 +1,181 @@
+/*-reset-*/
+html, body, div, span, p, 
+a,img,li,ul,h1,h2,h3,h4,h5,textarea,input,table,tbody,tr,td,dd,dl,dt{
+    margin:0;
+    padding:0;
+    border:none;
+    text-decoration:none;
+}
+
+ul{
+    list-style:none;
+}
+
+.clearfix:after{
+    visibility:hidden;
+    display:block;
+    font-size:0;
+    content:" ";
+    clear:both;
+    height:0;
+}
+
+.clearfix {
+    zoom:1;
+}
+
+
+/*-reset-fininsh-*/
+
+
+/*-out-line-*/
+body{
+    background-color: rgb(250, 245, 245);
+    min-width:960px;
+}
+
+p{
+    margin-bottom: .7em;
+}
+
+/*-out-line-finish-*/
+
+/*-page-*/
+.dianlogo_box{
+    position: absolute;
+    top: -40px;
+    height:222px;
+    width:222px;
+    background:url(/img/1/logo_bg.png) no-repeat;
+}
+
+.dianlogo{
+    position: absolute;
+    width:100%;
+    height: 100%;
+    background: url(/img/1/dian.png) no-repeat ;
+    top: 50%;
+    left: 50%;
+    margin: -30px 0 0 -90px;
+}
+
+#main{
+    width: 100%;
+}
+
+/*--nav--*/
+#nav {
+    position: fixed;
+    z-index: 99;
+    top: 0px;
+    left: 50%;
+    background-color: rgba(255,255,255, .5);
+    padding-left: 10px;
+    margin: 0px 0 0 20px;
+}
+
+#nav li{
+    float:left;
+    margin: 10px 10px 10px 0;
+}
+
+#nav a img{
+    transition: padding 0.3s;
+    -moz-transition: padding 0.3s; 
+    -webkit-transition: padding 0.3s; 
+    -o-transition: padding 0.3s; 
+}
+
+#nav a:hover img{
+    padding-top: 10px;
+}
+
+* html #nav{
+    position: absolute;
+}
+/*--nav-finish--*/
+
+
+/*--common--*/
+.section{
+    position: relative;
+    height:800px;
+    overflow: hidden;
+    border-bottom: 5px solid #fcfafa;
+    z-index: 0;
+}
+
+.scroll_content{
+    position: relative;
+    zoom:1;
+    z-index: -1;
+    /*ie6 z-index必须将父级元素关系设置清楚*/
+}
+
+.layer{
+    height: 2000px;
+    width: 2000px;
+    background: no-repeat fixed;
+    position: absolute;
+    /*z-index: -1;*/
+    top: 0px;
+    left: 0px;
+}
+.layer1{
+    background-position: 100% 0px;
+}
+.layer2{
+    background-position: 90% 350px;
+}
+.layer3{
+    background-position: 90% 350px;
+}
+
+.content{
+    width: 960px;
+    margin: 100px auto;
+    z-index: 99;
+}
+.content #article{
+    width: 500px;
+    border-top: 1px solid #2a2a2a;
+    padding-top: 1em;
+    margin-top: 1em;
+    background: rgba(255,255,255, 0.5);
+}
+
+/*--common-finish--*/
+
+
+/*---first--*/
+#first{
+    background: url(/img/1/bg_1.jpg) no-repeat bottom;
+}
+#first .tenyear_box{
+    width:89px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-left: -44px;
+    margin-top: -90px;
+}
+
+#first .tenyear{
+    width:89px;
+    height:201px;
+    background: url(/img/1/ten.png) no-repeat center;
+}
+
+#first .lnk{
+    position: absolute;
+    top: -200px;
+    left: -30px;
+    width: 283px;
+    height: 274px;
+    background: url(/img/1/water.png) no-repeat ;
+
+}
+/*--first-finish--*/
+
+
+/*--second--*/
