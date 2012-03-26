@@ -5,6 +5,7 @@ $(document).ready(function(){
         $this.css('background-image','url('+$this.data('img')+')');
     });
 
+    //for slide scroll
     //group
     $('.layer1').data('speed', 40);
     $('.layer1').data('offset', 90);
@@ -18,21 +19,18 @@ $(document).ready(function(){
     $('.layer3').data('offset', 700);
 
     var $window = $(window);
-    var offset = 450;
-
 
     $('.scroll_content').find('img').each(function(){
         var $this=$(this),
-            offsetCoords = $this.offset(),
             topOffset = $this.offset().top;
             // console.log('info topOffset: '+ topOffset);
 
         $window.scroll(function(){
-            console.log('info scrolling');
-            //sides between top / bottom of the current view
+            // console.log('info scrolling');
+            //slides between top / bottom of the current view
             if((($window.scrollTop() + $window.height()) > topOffset) && 
                 (topOffset + $this.height() > $window.scrollTop())){
-                console.log('info scroll:'+this+' in this view');
+                // console.log('info scroll:'+this+' in this view');
 
                 //flow up
                 var nextY = flowupInScroll($this);
@@ -46,9 +44,46 @@ $(document).ready(function(){
 
     });
 
+
+
+    //for year scroll
+    var startOffset = $window.height() * 0.1;
+    $('.year').each(function(){
+        var $this=$(this),
+            topOffset = $this.offset().top,
+            $thisParentBox = $this.parent().parent();
+            stopOffset = $thisParentBox.height() + 
+                         $thisParentBox.offset().top;
+            // console.log('info topOffset: '+ topOffset);
+
+        //hide it
+        $this.css('top', '-90px');
+
+        $window.scroll(function(){
+            //slides between top / bottom of the current view
+            //slides in its parent
+            if((($window.scrollTop() + startOffset) > topOffset) && 
+                (($window.scrollTop() + startOffset) < stopOffset)){
+                //flow up
+                flowWithScroll($this);
+
+
+            }
+        });
+
+
+    });
+
     var flowupInScroll= function($this){
-        return $this.data('offset') -
+        var nextY = $this.data('offset') -
         ($window.scrollTop()/$this.data('speed'));
+        var coords = $this.css('background-position-x')+' ' + nextY + 'px';
+        $this.css({backgroundPosition: coords});
+    }
+    var flowWithScroll = function($this){
+        var top = $window.scrollTop() + startOffset - $this.offset().top;
+        $this.css('top', top+'px');
+
     }
 
     // var flowupInSpeed = function($this){

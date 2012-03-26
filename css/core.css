@@ -5,6 +5,7 @@ a,img,li,ul,h1,h2,h3,h4,h5,textarea,input,table,tbody,tr,td,dd,dl,dt{
     padding:0;
     border:none;
     text-decoration:none;
+    font-weight:normal;
 }
 
 ul{
@@ -99,10 +100,10 @@ p{
 /*--common--*/
 .section{
     position: relative;
-    height:800px;
     overflow: hidden;
     border-bottom: 5px solid #fcfafa;
     z-index: 0;
+    min-height:800px;
 }
 
 .scroll_content{
@@ -136,7 +137,7 @@ p{
     margin: 100px auto;
     z-index: 99;
 }
-.content #article{
+.content .article{
     width: 500px;
     border-top: 1px solid #2a2a2a;
     padding-top: 1em;
@@ -178,4 +179,45 @@ p{
 /*--first-finish--*/
 
 
-/*--second--*/
+
+/* The most important the little things */
+.years_list{
+    overflow: hidden;
+
+}
+.year_box{
+    float:left;
+    margin-right: 15px;
+    padding-right: 10px;
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+    overflow: hidden;
+    position: relative;
+    width: 95px;
+    min-height: 81px;
+    z-index: 99;
+    border-right: 5px solid #2a2a2a;
+}
+.year{
+    position: absolute;
+    top:0px;
+    left:0px;
+    width: 81px;
+    height: 81px;
+    background: url(/img/year.png) left top no-repeat;
+    color: rgb(250,245,245);
+    font-family: Arial, sans-serif;
+    line-height:81px;
+    text-align:center;
+    padding-right: 14px;
+}
+.year_itm{
+    min-height: 130px;
+}
+.things_list {
+    margin-left:95px;
+    /*float:left;*/
+    overflow: hidden;
+    *zoom: 1;
+    z-index: 1px;
+}
