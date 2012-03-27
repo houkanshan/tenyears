@@ -14,6 +14,10 @@ $(document).ready(function(){
         return true;
     }
 
+    //hide nav item
+    $('a[href="#first"]').parent().addClass('hide');
+    $('#nav').addClass('at_top');
+
     //for slide scroll
     //group
     $('.layer1').data('speed', 40);
@@ -29,6 +33,16 @@ $(document).ready(function(){
 
     var $window = $(window);
 
+    $window.scroll(function(){
+        if($window.scrollTop() > $window.height()){
+            $('a[href="#first"]').parent().removeClass('hide');
+            $('#nav').removeClass('at_top');
+        }else{
+            $('a[href="#first"]').parent().addClass('hide');
+            $('#nav').addClass('at_top');
+        }
+    });
+
     $('.scroll_content').find('img').each(function(){
         var $this=$(this),
         topOffset = $this.offset().top;
@@ -39,15 +53,8 @@ $(document).ready(function(){
             //slides between top / bottom of the current view
             if((($window.scrollTop() + $window.height()) > topOffset) && 
                 (topOffset + $this.height() > $window.scrollTop())){
-
                 //flow up
                 flowupInScroll($this);
-                // console.log($this.css('background-position'));
-
-                // var coords = $this.css('background-position-x')+' ' + nextY + 'px';
-
-                // var coords = $this.get(0).style.backgroundPosition
-                // .replace(/ .*(px)/i, ' '+nextY+'$1');
             }
         });
     });
