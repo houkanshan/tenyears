@@ -98,12 +98,18 @@ p{
 
 
 /*--common--*/
+
 .section{
     position: relative;
     overflow: hidden;
     border-bottom: 5px solid #fcfafa;
     z-index: 0;
-    min-height:800px;
+    /*fuck ie6*/
+    min-height: 800px;
+    _height:800px;
+}
+.section.timeline{
+    _height: 100%;
 }
 
 .scroll_content{
@@ -114,7 +120,8 @@ p{
 }
 
 .layer{
-    height: 2000px;
+    /*height: 2000px;*/
+    height: 6000px;
     width: 2000px;
     background: no-repeat fixed;
     position: absolute;
@@ -129,7 +136,7 @@ p{
     background-position: 90% 350px;
 }
 .layer3{
-    background-position: 90% 350px;
+    background-position: 90% 600px;
 }
 
 .content{
@@ -183,11 +190,10 @@ p{
 /* The most important the little things */
 .years_list{
     overflow: hidden;
-
+    *zoom:1;
 }
 .year_box{
     float:left;
-    margin-right: 15px;
     padding-right: 10px;
     margin-bottom: -99999px;
     padding-bottom: 99999px;
@@ -197,6 +203,7 @@ p{
     min-height: 81px;
     z-index: 99;
     border-right: 5px solid #2a2a2a;
+    *zoom:1;
 }
 .year{
     position: absolute;
@@ -218,17 +225,18 @@ p{
 .year_itm{
     min-height: 130px;
     padding-bottom: 20px;
-    /*overflow: hidden;*/
 }
 .things_list {
-    margin-left:95px;
-    /*float:left;*/
+    margin-left:109px;
     overflow: hidden;
-    *zoom: 1;
-    z-index: 1px;
+    zoom: 1;
 }
 .thing_itm{
+    padding: 30px 0 15px 15px;
     margin-bottom: 20px;
+    border-bottom: 2px solid #2a2a2a;
+    border-radius: 0 0 0 10px;
+    -moz-border-radius:0 0 0 10px;
 }
 
 
@@ -238,6 +246,7 @@ p{
 }
 input, select, textarea{
     font-family: 'Microsoft YaHei',Arial,Helvetica,sans-serif;
+    width: 300px;
     margin:0;
 }
 input[type="text"], textarea {
@@ -260,7 +269,6 @@ textarea{
     vertical-align: text-top;
 }
 .submit-btn{
-    width: 300px;
     height: 33px;
     color: white;
     background-color: #f7850a;

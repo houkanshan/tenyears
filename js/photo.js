@@ -9,6 +9,11 @@ $(document).ready(function(){
         $this.css('background-image','url('+$this.data('img')+')');
     });
 
+    //let ie go to hell
+    if($.browser.msie){
+        return true;
+    }
+
     //for slide scroll
     //group
     $('.layer1').data('speed', 40);
@@ -26,38 +31,35 @@ $(document).ready(function(){
 
     $('.scroll_content').find('img').each(function(){
         var $this=$(this),
-            topOffset = $this.offset().top;
+        topOffset = $this.offset().top;
             // console.log('info topOffset: '+ topOffset);
 
-        $window.scroll(function(){
+            $window.scroll(function(){
             // console.log('info scrolling');
             //slides between top / bottom of the current view
             if((($window.scrollTop() + $window.height()) > topOffset) && 
                 (topOffset + $this.height() > $window.scrollTop())){
-                // console.log('info scroll:'+this+' in this view');
 
                 //flow up
-                var nextY = flowupInScroll($this);
+                flowupInScroll($this);
+                // console.log($this.css('background-position'));
 
-                var coords = $this.css('background-position-x')+' ' + nextY + 'px';
+                // var coords = $this.css('background-position-x')+' ' + nextY + 'px';
 
-                $this.css({backgroundPosition: coords});
+                // var coords = $this.get(0).style.backgroundPosition
+                // .replace(/ .*(px)/i, ' '+nextY+'$1');
             }
         });
-
-
     });
-
-
 
     //for year scroll
     var startOffset = $window.height() * 0.3;
     $('.year').each(function(){
         var $this=$(this),
-            topOffset = $this.offset().top,
-            $thisParentBox = $this.parent().parent().parent(),
-            stopOffset = $thisParentBox.height() + 
-                         $thisParentBox.offset().top;
+        topOffset = $this.offset().top,
+        $thisParentBox = $this.parent().parent().parent(),
+        stopOffset = $thisParentBox.height() + 
+        $thisParentBox.offset().top;
             // console.log('info topOffset: '+ topOffset);
 
         //hide it
@@ -66,35 +68,26 @@ $(document).ready(function(){
         $window.scroll(function(){
             //slides between top / bottom of the current view
             //slides in its parent
-            if((($window.scrollTop() + startOffset) > topOffset) && 
-                (($window.scrollTop() + startOffset) < stopOffset)){
+            if((($window.scrollTop() + startOffset) > topOffset) && (($window.scrollTop() + startOffset) < stopOffset)){
                 //flow up
                 console.log(stopOffset);
                 flowWithScroll($this);
-            // }else{
-                // $this.css('top', '0px');
+            }else if ($window.scrollTop() + startOffset < topOffset){
+                $this.css('top', '0px');
             }
         });
-
-
     });
 
     var flowupInScroll= function($this){
-        var nextY = $this.data('offset') -
-        ($window.scrollTop()/$this.data('speed'));
-        var coords = $this.css('background-position-x')+' ' + nextY + 'px';
-        $this.css({backgroundPosition: coords});
+        var nextY = $this.data('offset') - ($window.scrollTop()/$this.data('speed'));
+        var coords = $this.css('background-position')
+        .replace(/ .*(px)/i, ' '+nextY+'$1');
+
+        $this.css('background-position', coords);
     }
     var flowWithScroll = function($this){
         var top = $window.scrollTop() + startOffset - $this.parent().offset().top;
         $this.css('top', top+'px');
-
     }
-
-    // var flowupInSpeed = function($this){
-    //     var backgroundY = parseInt($this.css('background-position-y').replace(/px/,''));
-    //     // console.log(backgroundY);
-    //     return backgroundY - $this.data('speed');
-    // }
 
 });
