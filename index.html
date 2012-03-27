@@ -8,11 +8,13 @@
   <meta name="Copyright" content="Copyright dian.org.cn All Rights Reserved.">
   <title>Dian团队10年</title>
   <link rel="stylesheet" href="/css/core.css" />
+  <link rel="stylesheet" href="/css/jquery-ui-1.8.18.custom.css" />
       <!--[if lt IE 7]>
         <script type="text/javascript" src="/js/unitpngfix.js"></script>
         <![endif]-->
   <script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
   <script type="text/javascript" src="/js/photo.js"></script>
+  <script type="text/javascript" src="/js/jquery-ui-1.8.18.custom.min.js"></script>
 </head>
 <body>
   <div id="main">
@@ -115,7 +117,7 @@
         <ul class="years_list article clearfix">
           <li class="year_itm">
             <div class="year_box">
-              <h2 class="year">2012</h2>
+              <h2 class="year">1992</h2>
             </div>
             <ul class="things_list">
               <li class="thing_itm">
@@ -134,7 +136,7 @@
           </li>
           <li class="year_itm">
             <div class="year_box">
-              <h2 class="year">2012</h2>
+              <h2 class="year">1994</h2>
             </div>
             <ul class="things_list">
               <li class="thing_itm">
@@ -153,7 +155,7 @@
           </li>
           <li class="year_itm">
             <div class="year_box">
-              <h2 class="year">2012</h2>
+              <h2 class="year">1998</h2>
             </div>
             <ul class="things_list">
               <li class="thing_itm">
@@ -172,7 +174,7 @@
           </li>
           <li class="year_itm">
             <div class="year_box">
-              <h2 class="year">2012</h2>
+              <h2 class="year">2000</h2>
             </div>
             <ul class="things_list">
               <li class="thing_itm">
@@ -218,31 +220,18 @@
       </div>
       <div class="content">
         <h1>报名</h1>
-        <div class="article">
-          <p>
-            你会不会突然的出现在街角的咖啡店. 
-            你会不会突然的出现在街角的咖啡店. 
-            你会不会突然的出现在街角的咖啡店. 
-            你会不会突然的出现在街角的咖啡店. 
-            你会不会突然的出现在街角的咖啡店. 
-            你会不会突然的出现在街角的咖啡店. 
-            你会不会突然的出现在街角的咖啡店. 
-            你会不会突然的出现在街角的咖啡店. 
-            你会不会突然的出现在街角的咖啡店. 
-            你会不会突然的出现在街角的咖啡店. 
-          </p>
-          <p>
-            你会不会突然的出现在街角的咖啡店. 
-            你会不会突然的出现在街角的咖啡店. 
-            你会不会突然的出现在街角的咖啡店. 
-            你会不会突然的出现在街角的咖啡店. 
-            你会不会突然的出现在街角的咖啡店. 
-            你会不会突然的出现在街角的咖啡店. 
-            你会不会突然的出现在街角的咖啡店. 
-            你会不会突然的出现在街角的咖啡店. 
-            你会不会突然的出现在街角的咖啡店. 
-            你会不会突然的出现在街角的咖啡店. 
-          </p>
+        <div class="article form">
+          <form method="post">
+            <p>姓名</p><input type="text" name="name" value=""></input>
+            <p>工作单位</p><input type="text" name="work" value="" ></input>
+            <p>电话</p><input type="text" name="tel" value="" ></input>
+            <p>邮箱</p><input type="text" name="email" value="" ></input>
+            <p>抵汉日期</p><input id="arrive_date" type="text" name="arrivedate" value="" ></input>
+            <p>回程日期</p><input id="return_date" type="text" name="returndate" value="" ></input>
+            <p>来访人数</p><input type="text" name="num" value="" ></input>
+            <p>其他要求或说明</p><textarea type="text" name="other" value="" data-id="20"></textarea>
+            <input type="submit" class="submit-btn clearfix" value="提交"/>
+          </form>
         </div>
       </div>
     </div>

@@ -210,9 +210,15 @@ p{
     line-height:81px;
     text-align:center;
     padding-right: 14px;
+    transition: top 1s;
+    -moz-transition: top 1s; 
+    -webkit-transition: top 1s; 
+    -o-transition: top 1s; 
 }
 .year_itm{
     min-height: 130px;
+    padding-bottom: 20px;
+    /*overflow: hidden;*/
 }
 .things_list {
     margin-left:95px;
@@ -220,4 +226,45 @@ p{
     overflow: hidden;
     *zoom: 1;
     z-index: 1px;
+}
+.thing_itm{
+    margin-bottom: 20px;
+}
+
+
+/* input */
+.form p{
+    margin-bottom: 5px;
+}
+input, select, textarea{
+    font-family: 'Microsoft YaHei',Arial,Helvetica,sans-serif;
+    margin:0;
+}
+input[type="text"], textarea {
+    width: 285px;
+    max-width:285px;
+    background: rgb(238,238,238);
+    border: 1px solid rgb(204,204,204);
+    margin-bottom: 15px;
+}
+input[type="text"], textarea{
+    font-size: 12px;
+    padding: 5px 7px;
+    color: rgb(102,102,102);
+}
+input[type="text"]:focus, textarea:focus{
+    background: white;
+}
+textarea{
+    overflow: auto;
+    vertical-align: text-top;
+}
+.submit-btn{
+    width: 300px;
+    height: 33px;
+    color: white;
+    background-color: #f7850a;
+    border: 1px solid #f47602;
+    border-radius: 5px;
+    cursor: pointer;
 }

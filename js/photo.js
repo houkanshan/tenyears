@@ -1,5 +1,9 @@
 // Dian.org.cn
 $(document).ready(function(){
+
+    $("#arrive_date").datepicker();
+    $("#return_date").datepicker();
+
     $('.scroll_content').find('img').each(function(){
         var $this = $(this);
         $this.css('background-image','url('+$this.data('img')+')');
@@ -47,17 +51,17 @@ $(document).ready(function(){
 
 
     //for year scroll
-    var startOffset = $window.height() * 0.1;
+    var startOffset = $window.height() * 0.3;
     $('.year').each(function(){
         var $this=$(this),
             topOffset = $this.offset().top,
-            $thisParentBox = $this.parent().parent();
+            $thisParentBox = $this.parent().parent().parent(),
             stopOffset = $thisParentBox.height() + 
                          $thisParentBox.offset().top;
             // console.log('info topOffset: '+ topOffset);
 
         //hide it
-        $this.css('top', '-90px');
+        // $this.css('top', '-90px');
 
         $window.scroll(function(){
             //slides between top / bottom of the current view
@@ -65,9 +69,10 @@ $(document).ready(function(){
             if((($window.scrollTop() + startOffset) > topOffset) && 
                 (($window.scrollTop() + startOffset) < stopOffset)){
                 //flow up
+                console.log(stopOffset);
                 flowWithScroll($this);
-
-
+            // }else{
+                // $this.css('top', '0px');
             }
         });
 
@@ -81,7 +86,7 @@ $(document).ready(function(){
         $this.css({backgroundPosition: coords});
     }
     var flowWithScroll = function($this){
-        var top = $window.scrollTop() + startOffset - $this.offset().top;
+        var top = $window.scrollTop() + startOffset - $this.parent().offset().top;
         $this.css('top', top+'px');
 
     }
