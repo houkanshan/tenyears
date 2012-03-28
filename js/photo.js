@@ -20,21 +20,44 @@ $(document).ready(function(){
 
     //for slide scroll
     //group
-    $('.layer1').data('speed', 40);
-    $('.layer1').data('offset', 90);
+    // $('.layer1').data('speed', 40);
+    // $('.layer1').data('offset', 90);
+    $('.layer1').each(function(){
+        var $this = $(this);
+        if($this.data('speed') == undefined){
+            $this.data('speed', 40);
+        }
+        if($this.data('offset') == undefined){
+            $this.data('offset', 90);
+        }
+    });
 
     //single1
-    $('.layer2').data('speed', 20);
-    $('.layer2').data('offset', 500)
+    $('.layer2').each(function(){
+        var $this = $(this);
+        if($this.data('speed') == undefined){
+            $this.data('speed', 20);
+        }
+        if($this.data('offset') == undefined){
+            $this.data('offset', 500);
+        }
+    });
 
     //single2
-    $('.layer3').data('speed', 30);
-    $('.layer3').data('offset', 700);
+    $('.layer3').each(function(){
+        var $this = $(this);
+        if($this.data('speed') == undefined){
+            $this.data('speed', 30);
+        }
+        if($this.data('offset') == undefined){
+            $this.data('offset', 700);
+        }
+    });
 
     var $window = $(window);
 
     $window.scroll(function(){
-        if($window.scrollTop() > $window.height()){
+        if($window.scrollTop() > 800){
             $('a[href="#first"]').parent().removeClass('hide');
             $('#nav').removeClass('at_top');
         }else{
@@ -60,8 +83,9 @@ $(document).ready(function(){
     });
 
     //for year scroll
-    var startOffset = $window.height() * 0.3;
-    $('.year').each(function(){
+    var startHeight = $window.height() * 0.3;
+    var endOffset = $('.year:last').offset().top;
+    $('.year').not(':last').each(function(){
         var $this=$(this),
         topOffset = $this.offset().top,
         $thisParentBox = $this.parent().parent().parent(),
@@ -75,11 +99,11 @@ $(document).ready(function(){
         $window.scroll(function(){
             //slides between top / bottom of the current view
             //slides in its parent
-            if((($window.scrollTop() + startOffset) > topOffset) && (($window.scrollTop() + startOffset) < stopOffset)){
+            if((($window.scrollTop() + startHeight) > topOffset) && (($window.scrollTop() + startHeight) < stopOffset)){
                 //flow up
                 console.log(stopOffset);
                 flowWithScroll($this);
-            }else if ($window.scrollTop() + startOffset < topOffset){
+            }else if ($window.scrollTop() + startHeight < topOffset){
                 $this.css('top', '0px');
             }
         });
@@ -93,8 +117,17 @@ $(document).ready(function(){
         $this.css('background-position', coords);
     }
     var flowWithScroll = function($this){
-        var top = $window.scrollTop() + startOffset - $this.parent().offset().top;
-        $this.css('top', top+'px');
+        var parentOffsetTop = $this.parent().offset().top;
+        var toTop = $window.scrollTop() + startHeight - parentOffsetTop;
+        var endTop = endOffset - parentOffsetTop;
+        if(toTop > endTop){
+            //chrome need 4px more
+            $this.css('top', (endTop) + 'px');
+            // $this.hide();
+        }else{
+            $this.css('top', toTop + 'px');
+            // $this.show();
+        }
     }
 
 });
